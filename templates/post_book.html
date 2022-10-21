@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Books</title>
+    <link rel="stylesheet" href="{% static 'css/post_book.css' %}"/>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="header__logo">
+            <img src="{% static 'images/python-logo.png' %}">
+            <p>Python Books</p>
+        </div>
+        <div class="header__links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Features</a>
+            <a href="#">Contacts</a>
+        </div>
+        <div class="header__search">
+            <input placeholder="Search">
+            <button class="button">Search</button>
+        </div>
+    </header>
+    <main class="main">
+        <section class="posts">
+            {% for post in post_object %}
+            <div class="posts__item">
+                <div class="posts__item-image">
+                    <img src="{{post.image.url}}" alt="">
+                </div>
+                <div class="posts__item-text">
+                    <h1>{{post.title}}</h1>
+                    <p>{{post.short_description}}</p>
+                    <a href="/posts/{{post.id}}" class="">
+                        <button class="button">More</button>
+                    </a>
+                </div>
+            </div>
+            <div class="posts__border-bottom"></div>
+            {% endfor %}
+        </section>
+    </main>
+    <footer class="footer">
+        <p>Copyright © 2022</p>
+    </footer>
+</div>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Python Books</title>
+    <link rel="stylesheet" href="{% static 'css/detail_book.css' %}"/>
+</head>
+<body>
+<div class="container">
+    <header class="header">
+        <div class="header__logo">
+            <img src="{% static 'images/python-logo.png' %}">
+            <p>Python Books</p>
+        </div>
+        <div class="header__links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">Features</a>
+            <a href="#">Contacts</a>
+        </div>
+        <div class="header__search">
+            <input placeholder="Search">
+            <button class="button">Search</button>
+        </div>
+    </header>
+    <main class="main">
+        <div class="post">
+            <div class="div1">
+                <img src="{{post_id.image.url}}" alt="...">
+                <div class="div2">
+                    <h1>{{post_id.title}}</h1>
+                    <p>{{post_id.short_description}}</p>
+                    <p><span>Author: </span>{{post_id.author}}</p>
+                    <p><span>Number of pages: </span>{{post_id.pages}}</p>
+                </div>
+            </div>
+            <div class="div3">
+                <p>{{post_id.full_description}}</p>
+            </div>
+            <div class="div4">
+                <a href="/posts/">
+                    <button class="button">< Back</button>
+                </a>
+                <p><span>Create: </span>{{post_id.created_date}}</p>
+                <p><span>Update: </span>{{post_id.updated_date}}</p>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>Copyright © 2022</p>
+    </footer>
+</div>
+</body>
+</html>
