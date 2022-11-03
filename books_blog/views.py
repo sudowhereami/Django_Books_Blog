@@ -25,3 +25,23 @@ def add_post(request):
         form = forms.ShowForm
 
     return render(request, 'add_book.html', {'form': form})
+
+
+def update_book(request, id):
+    book_object = get_object_or_404(models.PostBook, id=id)
+    if request.method == 'POST':
+        form = forms.ShowForm(instance=book_object, data=request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse('Updated!')
+
+    else:
+        form = forms.ShowForm(instance=book_object)
+
+    return render(request, 'update_book.html', {'form': form, 'object': book_object})
+
+
+def delete_book(request, id):
+    book_object = get_object_or_404(models.PostBook, id=id)
+    book_object.delete()
+    return HttpResponse('Deleted')

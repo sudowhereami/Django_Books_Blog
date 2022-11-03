@@ -42,8 +42,24 @@
                 <a href="/posts/">
                     <button class="button">< Back</button>
                 </a>
-                <p><span>Create: </span>{{post_id.created_date}}</p>
-                <p><span>Update: </span>{{post_id.updated_date}}</p>
+                <p><span>Created: </span>{{post_id.created_date}}</p>
+                <p><span>Updated: </span>{{post_id.updated_date}}</p>
+
+
+
+                <button>
+                    <a href="/posts/{{post_id.id}}/update/">
+                        Update post
+                    </a>
+                </button>
+                <button>
+                    <a href="/posts/{{post_id.id}}/delete/">
+                        Delete post
+                    </a>
+                </button>
+
+
+
             </div>
         </div>
     </main>
